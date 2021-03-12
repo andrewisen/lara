@@ -1,0 +1,123 @@
+@import "../../styles/lara";
+
+.carousel {
+    @include desktop {
+        background-color: $white;
+        position: relative;
+        margin: 0;
+        .recipes-container {
+            display: flex;
+            .recipes {
+                box-shadow: 0 2px 14px 0 rgb(0 0 0 / 10%);
+                box-sizing: border-box;
+                padding: 25px 25px 50px;
+                position: relative;
+                width: calc(100% - 225px);
+                .heading {
+                    display: block;
+                    font-size: 22px;
+                    font-weight: 700;
+                    line-height: 26px;
+                    margin: 0 0 16px;
+                    text-transform: uppercase;
+                    .heading-link {
+                        color: $black;
+                        text-decoration: none;
+                    }
+                }
+                .gallery {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-around;
+                    .recipe {
+                        font-size: 16px;
+                        line-height: 19px;
+                        min-width: 200px;
+                        box-shadow: none;
+                        margin: 0;
+                        padding: 0;
+                        .link {
+                            display: block;
+                            color: $primary;
+                            font-weight: 700;
+                            .recipe-picture {
+                                display: block;
+                                height: 215px;
+                                overflow: hidden;
+                                position: relative;
+                                width: 345px;
+                                margin-bottom: $desktop-margin;
+                                .recipe-image {
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%);
+                                    width: 100%;
+                                }
+                            }
+                            strong {
+                                display: block;
+                            }
+                            &:hover {
+                                color: $black;
+                            }
+                        }
+                    }
+                }
+                .recipes-button {
+                    position: absolute;
+                    left: 50%;
+                    bottom: -50px;
+                    transform: translate(-50%, 50%);
+                    box-shadow: 0 2px 14px 0 rgb(0 0 0 / 20%);
+                    background: #157736;
+                    border-radius: 16px;
+                    font-size: 14px;
+                    line-height: 32px;
+                    text-align: center;
+                    box-sizing: border-box;
+                    padding: 0 10px;
+                    color: $white;
+                    min-width: 133px;
+                }
+            }
+            .related-recipes {
+                background: #fff;
+                box-shadow: 0 2px 14px 0 rgb(0 0 0 / 10%);
+                flex-shrink: 0;
+                width: 215px;
+                margin: 0 0 0 15px;
+                box-sizing: border-box;
+                padding: 25px 25px 20px;
+                .related-recipes-heading {
+                    font-size: 18px;
+                    line-height: 21px;
+                    letter-spacing: -0.5px;
+                    display: block;
+                    margin: 0 0 20px;
+                }
+                .related-recipes-list {
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
+                    font-size: 14px;
+                    line-height: 16px;
+                    .related-recipes-list-item {
+                        padding: 0 0 10px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        .related-recipes-list-item-link {
+                            text-decoration: underline;
+                            color: #157736;
+                            display: inline-block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @include mobile {
+        display: none;
+    }
+}

@@ -1,0 +1,107 @@
+@import "../../styles/lara";
+
+$hero-content-width: 600px;
+
+.hero-section {
+    margin-bottom: 6px;
+    min-height: 271px;
+    min-height: 271px;
+    overflow: hidden;
+    padding: 0 80px;
+    position: relative;
+    .hero-background {
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 0;
+        &:after {
+            background: rgba(0, 0, 0, 0.12);
+            content: "";
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+    }
+    .hero-content-container {
+        align-content: stretch;
+        align-items: stretch;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-top: $header-height;
+        position: relative;
+        text-align: center;
+        width: 100%;
+        .hero-content {
+            max-width: $hero-content-width;
+            overflow: hidden;
+            padding: 35px 0;
+            text-align: center;
+            /**
+            * The hero title will have a line at each end, e.g.
+            * --- Title ---
+            *
+            **/
+            .hero-title {
+                font-size: 20px;
+                font-style: italic;
+                line-height: 28px;
+                margin-bottom: 20px;
+                position: relative;
+                text-shadow: 1px 1px 1px rgb(0 0 0 / 60%);
+                text-transform: none;
+
+                @mixin line {
+                    background: $white;
+                    content: "";
+                    height: 1px;
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    position: absolute;
+                    right: -92px;
+                    top: 50%;
+                    width: 58px;
+                }
+                $line-offset: 92px;
+                // Left side of title
+                &:before {
+                    @include line;
+                    left: -$line-offset;
+                }
+                // Right side of title
+                &:after {
+                    @include line;
+                    right: -$line-offset;
+                }
+            }
+            /**
+            * The hero subtitle will be a regular white font.
+            * Please note that the class "text-uppercase" has been applied.
+            */
+            .hero-subtitle {
+                display: block;
+                font-size: 40px;
+                line-height: 48px;
+            }
+
+            .hero-text {
+                display: block;
+                font-size: 17px;
+                line-height: 28px;
+                margin-top: 10px;
+                max-width: 700px;
+                text-shadow: 0 0 5px 0 $black;
+                text-transform: none;
+            }
+        }
+    }
+}

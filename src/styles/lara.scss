@@ -1,0 +1,14 @@
+@import "_variables";
+@import "_colors";
+@import "_mixins";
+@import "_utils";
+@import "_icons";
+
+html,
+body {
+    background-color: $background-color;
+    color: $color;
+    font-family: Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}

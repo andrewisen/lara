@@ -1,0 +1,17 @@
+@import "../../styles/lara";
+
+.recipes-container {
+    .recipes {
+        // Every child element should have the same margin
+        & > * {
+            @include desktop {
+                margin: $desktop-margin * $my $desktop-margin $desktop-margin *
+                    $my $desktop-margin;
+            }
+            @include mobile {
+                margin: $mobile-margin * 4 $mobile-margin $mobile-margin * $my
+                    $mobile-margin;
+            }
+        }
+    }
+}

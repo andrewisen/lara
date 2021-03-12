@@ -1,0 +1,125 @@
+@import "../../styles/lara";
+
+@mixin animation {
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    position: relative;
+    opacity: 1;
+}
+.gallery {
+    @include animation;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0; // Algin flexbox with the other components
+    // position: relative;
+    .recipe {
+        @include desktop {
+            margin-bottom: $desktop-margin * $my;
+            width: calc(25% - 24px);
+        }
+        @include mobile {
+            margin-bottom: $mobile-margin * $my;
+            width: 100%;
+        }
+        background-color: $white;
+        box-shadow: 0 2px 14px 0 rgb(0 0 0 / 10%);
+        .recipe-link {
+            color: $black;
+            text-decoration: none;
+            .recipe-image {
+                overflow: hidden;
+                position: relative;
+                width: 100%;
+                .picture {
+                    @include loading;
+                    display: block;
+                    height: 0;
+                    padding-bottom: 62%;
+                    .image {
+                        height: auto;
+                        left: 0;
+                        top: 0;
+                        width: 100%;
+                    }
+                }
+            }
+            .recipe-information {
+                padding: 10px 14px;
+                .recipe-information-heading {
+                    font-size: 18px;
+                    font-weight: 700;
+                    line-height: 22px;
+                    margin: 0 0 15px;
+                    text-transform: none;
+                    .heading {
+                        display: block;
+                        height: 100%;
+                    }
+                }
+                .recipe-information-text {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    .preparation-time {
+                        align-items: center;
+                        display: flex;
+                        font-size: 12px;
+                        font-weight: 700;
+                        line-height: 15px;
+                        .preparation-time-icon {
+                            height: 21px;
+                            margin-right: 10px;
+                            position: relative;
+                            top: -1px;
+                            width: 21px;
+                        }
+                    }
+                    .recipe-rating {
+                        margin-left: auto;
+                        font-size: 10px;
+                        line-height: 12px;
+                        color: #ccc;
+                        text-align: right;
+
+                        $rating-width: 50px;
+                        $rating-height: 11px;
+                        @for $i from 0 through 10 {
+                            .rating-#{$i} {
+                                @include grey-star;
+                                background-size: 9px 9px;
+                                display: flex;
+                                height: $rating-height;
+                                margin-bottom: 2px;
+                                position: relative;
+                                width: $rating-width;
+                                .wrapper {
+                                    overflow: hidden;
+                                    width: 5px * $i !important;
+                                    .stars {
+                                        @include gold-star;
+                                        background-size: 9px 9px;
+                                        height: $rating-height;
+                                        position: relative;
+                                        width: $rating-width;
+                                    }
+                                }
+                            }
+                        }
+                        .info {
+                            color: #ccc;
+                            font-size: 10px;
+                            line-height: 12px;
+                            margin-left: auto;
+                            text-align: right;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.dev {
+    background-color: red;
+}

@@ -1,0 +1,141 @@
+@import "../../styles/lara";
+$offset-left: 16px;
+.header {
+    @include full-width {
+        @include sticky-top {
+            align-items: center;
+            background-color: $white;
+            height: $header-height;
+            justify-items: center;
+            box-shadow: 0 1px 2px rgb(0 0 0 / 20%);
+
+            transition: top $transition-duration, transform $transition-duration,
+                box-shadow $transition-duration;
+            will-change: top, transform, box-shadow;
+            z-index: 1;
+
+            &:before {
+                content: "";
+                position: absolute;
+                height: 0;
+                width: 100%;
+                bottom: 0;
+                border-bottom: 1px solid #ebecec;
+            }
+            .header-logo {
+                display: block;
+                flex-shrink: 0;
+                height: 36px;
+                margin-left: $offset-left;
+                // position: relative;
+                width: 55px;
+                z-index: 130;
+            }
+            .mobile-button {
+                display: none;
+            }
+            .navbar {
+                .navbar-links {
+                    .navbar-link {
+                        .link {
+                            color: $color;
+                            font-weight: 700;
+                            display: inline-flex;
+                            align-items: center;
+                            height: 60px;
+
+                            white-space: nowrap;
+                            box-sizing: border-box;
+                            padding: 16px;
+                            text-decoration: none;
+                            line-height: 1.25;
+                            position: relative;
+                            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+                        }
+                    }
+                }
+            }
+
+            @include desktop {
+                .navbar {
+                    padding-left: 16px;
+                    .navbar-links {
+                        margin: 0;
+                        padding: 0;
+                        list-style: none;
+                        display: flex;
+                        .navbar-link {
+                            .link {
+                                text-transform: uppercase;
+                                font-size: 14px;
+                            }
+
+                            &:hover {
+                                .link {
+                                    color: $primary;
+                                    &:before {
+                                        content: "";
+                                        position: absolute;
+                                        left: 0;
+                                        bottom: 0;
+                                        width: 100%;
+                                        height: 2px;
+
+                                        background-color: $gray;
+                                        transition: background-color 0.2s;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            @include mobile {
+                .mobile-button {
+                    height: $header-height; // Spuare button
+                    display: block;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    transition: opacity $transition-duration;
+                    width: $header-height; // Spuare button
+                }
+                .navbar {
+                    background-color: $gray;
+                    height: 100%;
+                    left: 0;
+                    position: absolute;
+                    top: 0;
+                    transition: all $transition-duration;
+                    width: 100%;
+                    .navbar-links {
+                        flex-direction: column;
+                        height: 100vh;
+                        left: 0;
+                        list-style: none;
+                        margin: 0;
+                        padding: 0;
+                        position: absolute;
+                        top: 100%;
+                        width: 100%;
+                        .navbar-link {
+                            .link {
+                                align-items: center;
+                                background-color: $white;
+                                border-bottom: 1px solid #ebecec;
+                                box-sizing: border-box;
+                                display: inline-flex;
+                                font-size: 16px;
+                                height: $header-height;
+                                padding-left: 24px;
+                                padding-right: 24px;
+                                position: relative;
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
